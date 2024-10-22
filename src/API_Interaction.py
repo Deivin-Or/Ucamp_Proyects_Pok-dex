@@ -1,15 +1,16 @@
+# src/api.py
 import requests
 
 # Función para obtener los datos del Pokémon desde la PokeAPI
 def get_pokemon_data(pokemon_name):
-    # URL para obtener los datos del Pokémon usando su nombre
+    # URL de la API con el nombre del Pokémon ingresado
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}"
     
-    # Realizar la solicitud GET a la PokeAPI
+    # Realizar una solicitud GET a la API para obtener los datos del Pokémon
     response = requests.get(url)
     
-    # Si la solicitud es exitosa (código 200), devolver los datos como JSON
+    # Verificar si la solicitud fue exitosa (código de estado 200)
     if response.status_code == 200:
-        return response.json()  # Retornar los datos en formato JSON
+        return response.json()  # Devolver los datos del Pokémon en formato JSON
     else:
-        return None  # Si no se encuentra el Pokémon, devolver None
+        return None  # Retornar None si no se encuentra el Pokémon
