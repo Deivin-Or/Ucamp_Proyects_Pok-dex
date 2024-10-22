@@ -7,10 +7,10 @@ from kivymd.uix.card import MDCard
 from API_Interaction import get_pokemon_data  # Importar la función para obtener datos del Pokémon
 from Pokemon_Storage import save_pokemon_to_json  # Importar la función para guardar los datos en JSON
 
-# Definición del diseño KV para la interfaz gráfica.
+# Definición del diseño KV para la interfaz gráfica usando KivyMD
 KV = '''
 BoxLayout:
-    orientation: 'horizontal'  # El layout principal es horizontal
+    orientation: 'horizontal'  # Layout principal horizontal
     padding: 20
     spacing: 20
 
@@ -21,21 +21,21 @@ BoxLayout:
 
         MDTextField:
             id: pokemon_input
-            hint_text: "Introduce el nombre del Pokémon"  # Texto de entrada para el nombre del Pokémon
+            hint_text: "Introduce el nombre del Pokémon"  # Entrada de texto para el nombre del Pokémon
             size_hint_x: 0.8
             pos_hint: {"center_x": 0.5}
 
         MDRaisedButton:
-            text: "Buscar Pokémon"  # Botón para buscar el Pokémon
+            text: "Buscar Pokémon"  # Botón para iniciar la búsqueda
             pos_hint: {"center_x": 0.5}
-            on_release: app.search_pokemon()  # Llamada a la función search_pokemon cuando se presiona el botón
+            on_release: app.search_pokemon()  # Llamada a la función de búsqueda
 
     CustomCard:
         id: pokemon_card
         orientation: 'vertical'
         size_hint: None, None
-        size: 500, 800  # Tamaño del cuadro para mostrar la información del Pokémon
-        md_bg_color: 0.1, 0.1, 0.1, 1  # Color de fondo oscuro
+        size: 500, 800  # Tamaño de la tarjeta donde se mostrará la información del Pokémon
+        md_bg_color: 0.1, 0.1, 0.1, 1  # Color de fondo
         padding: 20
         spacing: 20
         radius: [20,]
@@ -48,23 +48,23 @@ BoxLayout:
             height: 400
 
             Image:
-                id: image_pokemon
+                id: image_pokemon  # Widget para mostrar la imagen del Pokémon
                 size_hint: None, None
-                size: 300, 300  # Tamaño de la imagen del Pokémon
+                size: 300, 300  # Tamaño de la imagen
                 allow_stretch: True
                 pos_hint: {"center_x": 0.5}
 
             MDLabel:
-                id: name_label
-                text: "Nombre: "  # Mostrar el nombre del Pokémon
+                id: name_label  # Mostrar el nombre del Pokémon
+                text: "Nombre: "
                 halign: "center"
                 font_style: "H4"
                 theme_text_color: "Custom"
                 text_color: 1, 1, 1, 1
 
             MDLabel:
-                id: type_label
-                text: "Tipo: "  # Mostrar el tipo del Pokémon
+                id: type_label  # Mostrar los tipos del Pokémon
+                text: "Tipo: "
                 halign: "center"
                 theme_text_color: "Custom"
                 text_color: 0.6, 0.6, 0.6, 1
@@ -77,16 +77,16 @@ BoxLayout:
             height: 200
 
             MDLabel:
-                id: stats_label
-                text: "Estadísticas: \\nAtaque: \\nDefensa: \\nVelocidad: "  # Mostrar las estadísticas
+                id: stats_label  # Mostrar las estadísticas (Ataque, Defensa, Velocidad)
+                text: "Estadísticas: \\nAtaque: \\nDefensa: \\nVelocidad: "
                 halign: "left"
                 font_style: "H6"
                 theme_text_color: "Custom"
                 text_color: 1, 1, 1, 1
 
             MDLabel:
-                id: extra_info_label
-                text: "Altura: \\nPeso: \\nHabilidades: "  # Mostrar altura, peso y habilidades
+                id: extra_info_label  # Mostrar información adicional (Altura, Peso, Habilidades)
+                text: "Altura: \\nPeso: \\nHabilidades: "
                 halign: "left"
                 font_style: "H6"
                 theme_text_color: "Custom"
