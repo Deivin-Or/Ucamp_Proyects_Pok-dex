@@ -38,7 +38,7 @@ def get_pokemon_data(pokemon_name):
         print("Error: No se pudo conectar a la API de Pokémon. Verifique su conexión a internet.")
         return None
     
-    except requests.exceptions.RequestException as e:
+    except requests.exceptions.RequestException as error:
         # Manejar otros errores relacionados con la solicitud
-        print(f"Error en la solicitud a la API: {e}")
+        print(f"Error en la solicitud a la API: {error}")
         return None
